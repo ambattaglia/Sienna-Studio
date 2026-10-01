@@ -200,7 +200,9 @@
       }
 
       .hero-visual {
-        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
         min-height: 540px;
       }
 
@@ -212,20 +214,22 @@
         border: 1px solid rgba(255, 255, 255, 0.12);
         background:
           linear-gradient(0deg, rgba(22, 14, 13, 0.7), rgba(22, 14, 13, 0.2) 46%, rgba(22, 14, 13, 0.5)),
-          url("images/sienna-portrait.png") center 25% / cover no-repeat;
+          url("blonde.jpg") center 25% / cover no-repeat;
         box-shadow: 0 18px 60px rgba(0, 0, 0, 0.5);
+        filter: brightness(1.18) contrast(1.08) saturate(1.12);
       }
 
       .floating-card {
-        position: absolute;
-        right: -10px;
-        bottom: 22px;
-        width: min(280px, 72%);
-        background: rgba(17, 12, 14, 0.9);
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: min(320px, 100%);
+        align-self: center;
+        background: rgba(17, 12, 14, 0.92);
         border: 1px solid var(--border);
         border-radius: 18px;
         padding: 18px 18px 16px;
-        box-shadow: -12px 20px 28px rgba(0, 0, 0, 0.28);
+        box-shadow: -12px 20px 28px rgba(0, 0, 0, 0.2);
       }
 
       .floating-card small {
@@ -285,12 +289,24 @@
         border: 1px solid var(--border);
         border-radius: 22px;
         overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
       }
 
       .card-media {
         height: 260px;
         background-size: cover;
         background-position: center;
+        transition: transform 0.3s ease, filter 0.3s ease;
+      }
+
+      .card:hover .card-media {
+        transform: scale(1.03);
+        filter: brightness(1.08);
       }
 
       .card-body {
@@ -429,7 +445,7 @@
       <section class="hero">
         <div class="container hero-inner">
           <div class="hero-copy">
-            <span class="eyebrow">Luxury makeup artistry</span>
+            <span class="eyebrow">Signature makeup artistry</span>
             <h1>Beauty that feels as bold as you do.</h1>
             <p>
               Sienna is a modern makeup studio for bridal moments, editorial shoots,
@@ -481,7 +497,7 @@
 
           <div class="cards">
             <article class="card">
-              <div class="card-media" style="background-image: url('images/sienna-detail.png'); background-position: center 20%;"></div>
+              <div class="card-media" style="background-image: url('Rainbow.jpg'); background-position: center 20%;"></div>
               <div class="card-body">
                 <h3>Editorial glam</h3>
                 <p>High-impact makeup built for photography, fashion shoots, and statement moments.</p>
@@ -489,7 +505,7 @@
             </article>
 
             <article class="card">
-              <div class="card-media" style="background-image: url('images/sienna-portrait.png'); background-position: center 30%;"></div>
+              <div class="card-media" style="background-image: url('tattoo.webp'); background-position: center 30%;"></div>
               <div class="card-body">
                 <h3>Bridal beauty</h3>
                 <p>Flawless, camera-ready finishing details that feel luxurious and long-lasting.</p>
@@ -497,7 +513,7 @@
             </article>
 
             <article class="card">
-              <div class="card-media" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('images/sienna-detail.png'); background-position: center 35%;"></div>
+              <div class="card-media" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('eyesculpture.webp'); background-position: center 35%;"></div>
               <div class="card-body">
                 <h3>Event styling</h3>
                 <p>Soft glam, sculpted eyes, and a personalized finish for weddings, birthdays, and more.</p>
@@ -552,7 +568,7 @@
 
           <div class="cards">
             <article class="card">
-              <div class="card-media" style="background-image: url('images/sienna-portrait.png'); background-position: center 25%;"></div>
+              <div class="card-media" style="background-image: url('red.webp'); background-position: center 25%;"></div>
               <div class="card-body">
                 <h3>Soft drama</h3>
                 <p>Smoky depth with a warm, elegant finish that photographs beautifully.</p>
@@ -560,7 +576,7 @@
             </article>
 
             <article class="card">
-              <div class="card-media" style="background-image: url('images/sienna-detail.png'); background-position: center 30%;"></div>
+              <div class="card-media" style="background-image: url('redhead.jpg'); background-position: center 30%;"></div>
               <div class="card-body">
                 <h3>Precise detail</h3>
                 <p>Graphic liner and nuanced shimmer designed to frame the eyes beautifully.</p>
@@ -568,7 +584,7 @@
             </article>
 
             <article class="card">
-              <div class="card-media" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.18)), url('images/sienna-portrait.png'); background-position: center 18%;"></div>
+              <div class="card-media" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.18)), url('black.jpg'); background-position: center 18%;"></div>
               <div class="card-body">
                 <h3>Luxe finish</h3>
                 <p>Polished, long-wear makeup with a soft editorial glow for special occasions.</p>
