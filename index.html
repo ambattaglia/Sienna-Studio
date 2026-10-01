@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sienna | Makeup Studio</title>
+    <meta
+      name="description"
+      content="Sienna Makeup Studio creates refined bridal, editorial, and event beauty looks in a luxurious red-and-black aesthetic."
+    />
+    <style>
+      :root {
+        --black: #120e10;
+        --black-soft: #1a1417;
+        --red: #9f1d29;
+        --red-deep: #73151d;
+        --rose: #e4a9ae;
+        --ivory: #f7f0ee;
+        --muted: #d6c9c4;
+        --panel: rgba(255, 255, 255, 0.03);
+        --border: rgba(255, 255, 255, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(180deg, #0f0b0d 0%, #181214 100%);
+        color: var(--ivory);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(8px);
+        background: rgba(18, 14, 16, 0.75);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 82px;
+        gap: 18px;
+      }
+
+      .logo {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.8rem, 2vw, 2.2rem);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .logo span {
+        color: var(--rose);
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: clamp(12px, 2vw, 28px);
+        color: var(--muted);
+        font-size: 0.92rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      nav a:hover {
+        color: var(--ivory);
+      }
+
+      .nav-button,
+      .button,
+      .button-light {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 26px;
+        border-radius: 999px;
+        transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+      }
+
+      .nav-button,
+      .button {
+        background: linear-gradient(135deg, var(--red), var(--red-deep));
+        color: #fff;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .button-light {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border);
+        color: var(--ivory);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .nav-button:hover,
+      .button:hover,
+      .button-light:hover {
+        transform: translateY(-1px);
+      }
+
+      .hero {
+        padding: 72px 0 40px;
+      }
+
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        align-items: center;
+        gap: 42px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--rose);
+      }
+
+      h1 {
+        margin: 18px 0 18px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(3.1rem, 6vw, 5.4rem);
+        line-height: 0.94;
+        letter-spacing: -0.04em;
+      }
+
+      .hero-copy p {
+        max-width: 560px;
+        margin: 0 0 28px;
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.8;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 30px;
+      }
+
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px;
+        padding-top: 20px;
+      }
+
+      .stat {
+        min-width: 120px;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: clamp(1.7rem, 2vw, 2.2rem);
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--ivory);
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-size: 0.8rem;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: 540px;
+      }
+
+      .hero-image {
+        min-height: 490px;
+        position: relative;
+        border-radius: 26px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background:
+          linear-gradient(0deg, rgba(22, 14, 13, 0.7), rgba(22, 14, 13, 0.2) 46%, rgba(22, 14, 13, 0.5)),
+          url("images/sienna-portrait.png") center 25% / cover no-repeat;
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      .floating-card {
+        position: absolute;
+        right: -10px;
+        bottom: 22px;
+        width: min(280px, 72%);
+        background: rgba(17, 12, 14, 0.9);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 18px 18px 16px;
+        box-shadow: -12px 20px 28px rgba(0, 0, 0, 0.28);
+      }
+
+      .floating-card small {
+        display: block;
+        color: var(--rose);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 0.68rem;
+        margin-bottom: 10px;
+      }
+
+      .floating-card strong {
+        display: block;
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+      }
+
+      .floating-card span {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 24px;
+        margin-bottom: 28px;
+      }
+
+      .section-header h2 {
+        margin: 10px 0 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.1rem, 4vw, 3.1rem);
+        letter-spacing: -0.04em;
+      }
+
+      .section-header p {
+        max-width: 480px;
+        color: var(--muted);
+        line-height: 1.8;
+        margin: 0;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        overflow: hidden;
+      }
+
+      .card-media {
+        height: 260px;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .card-body {
+        padding: 20px 22px 24px;
+      }
+
+      .card-body h3 {
+        margin: 0 0 10px;
+        font-size: 1.45rem;
+      }
+
+      .card-body p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .details {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .detail-panel,
+      .booking {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 28px;
+      }
+
+      .detail-panel {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 22px;
+        align-items: center;
+      }
+
+      .detail-panel img {
+        height: 100%;
+        min-height: 340px;
+        object-fit: cover;
+        border-radius: 18px;
+      }
+
+      .detail-panel h3,
+      .booking h3 {
+        margin-top: 0;
+        font-size: 1.9rem;
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      .detail-panel p,
+      .booking p,
+      .booking li {
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .booking ul {
+        list-style: none;
+        padding: 0;
+        margin: 18px 0 0;
+      }
+
+      .booking li {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .booking li:last-child {
+        border-bottom: 0;
+      }
+
+      .booking .button {
+        margin-top: 18px;
+      }
+
+      footer {
+        padding: 26px 0 56px;
+        color: var(--muted);
+        text-align: center;
+        border-top: 1px solid var(--border);
+      }
+
+      @media (max-width: 900px) {
+        .hero-inner,
+        .details,
+        .detail-panel,
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
+        nav {
+          display: none;
+        }
+
+        .topbar-inner {
+          justify-content: center;
+        }
+
+        .hero {
+          padding-top: 42px;
+        }
+
+        .hero-visual {
+          min-height: 420px;
+        }
+
+        .section-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a href="#home" class="logo">Sienna<span>.</span></a>
+        <nav aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#booking">Booking</a>
+        </nav>
+        <a href="#booking" class="nav-button">Book now</a>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">Luxury makeup artistry</span>
+            <h1>Beauty that feels as bold as you do.</h1>
+            <p>
+              Sienna is a modern makeup studio for bridal moments, editorial shoots,
+              and glam events—crafted with precision, softness, and a signature red-and-black aesthetic.
+            </p>
+            <div class="cta-row">
+              <a href="#booking" class="button">Book a consultation</a>
+              <a href="#gallery" class="button-light">View looks</a>
+            </div>
+            <div class="stats" aria-label="Studio metrics">
+              <div class="stat">
+                <strong>8+</strong>
+                <span>Years</span>
+              </div>
+              <div class="stat">
+                <strong>500+</strong>
+                <span>Clients</span>
+              </div>
+              <div class="stat">
+                <strong>4.9</strong>
+                <span>Rating</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Sienna portrait preview">
+            <div class="hero-image"></div>
+            <div class="floating-card">
+              <small>Signature look</small>
+              <strong>Bold liner, soft glow</strong>
+              <span>Precision artistry designed to photograph flawlessly and last all night.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <span class="eyebrow">Our services</span>
+              <h2>Refined beauty for every occasion.</h2>
+            </div>
+            <p>
+              From bridal glam to polished everyday elegance, each session is tailored to your features,
+              event style, and comfort.
+            </p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <div class="card-media" style="background-image: url('images/sienna-detail.png'); background-position: center 20%;"></div>
+              <div class="card-body">
+                <h3>Editorial glam</h3>
+                <p>High-impact makeup built for photography, fashion shoots, and statement moments.</p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-media" style="background-image: url('images/sienna-portrait.png'); background-position: center 30%;"></div>
+              <div class="card-body">
+                <h3>Bridal beauty</h3>
+                <p>Flawless, camera-ready finishing details that feel luxurious and long-lasting.</p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-media" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('images/sienna-detail.png'); background-position: center 35%;"></div>
+              <div class="card-body">
+                <h3>Event styling</h3>
+                <p>Soft glam, sculpted eyes, and a personalized finish for weddings, birthdays, and more.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container details">
+          <div class="detail-panel">
+            <img src="images/sienna-detail.png" alt="Close-up of a makeup eye look" />
+            <div>
+              <span class="eyebrow">The studio</span>
+              <h3>Makeup that feels personal and elevated.</h3>
+              <p>
+                At Sienna, every look is created to reflect your features, your mood, and the atmosphere of the moment.
+                We blend artistry, skin prep, and expert finishing techniques so you leave feeling polished, confident, and naturally luminous.
+              </p>
+              <p>
+                Whether you want a dramatic cat-eye, a soft bridal finish, or a refined event look, the experience is always considered, calm, and couture-inspired.
+              </p>
+            </div>
+          </div>
+
+          <aside id="booking" class="booking">
+            <span class="eyebrow">Booking</span>
+            <h3>Reserve your session</h3>
+            <p>Choose your service and let us create a look tailored to your occasion.</p>
+            <ul>
+              <li><span>Bridal glam</span><strong>$220</strong></li>
+              <li><span>Editorial look</span><strong>$180</strong></li>
+              <li><span>Event styling</span><strong>$140</strong></li>
+            </ul>
+            <a href="mailto:hello@sienna.studio" class="button">Request a quote</a>
+          </aside>
+        </div>
+      </section>
+
+      <section id="gallery" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <span class="eyebrow">Gallery</span>
+              <h2>Looks created to glow.</h2>
+            </div>
+            <p>
+              Clean lines, rich pigment, and refined finishing touches define the Sienna signature.
+            </p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <div class="card-media" style="background-image: url('images/sienna-portrait.png'); background-position: center 25%;"></div>
+              <div class="card-body">
+                <h3>Soft drama</h3>
+                <p>Smoky depth with a warm, elegant finish that photographs beautifully.</p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-media" style="background-image: url('images/sienna-detail.png'); background-position: center 30%;"></div>
+              <div class="card-body">
+                <h3>Precise detail</h3>
+                <p>Graphic liner and nuanced shimmer designed to frame the eyes beautifully.</p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-media" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.18)), url('images/sienna-portrait.png'); background-position: center 18%;"></div>
+              <div class="card-body">
+                <h3>Luxe finish</h3>
+                <p>Polished, long-wear makeup with a soft editorial glow for special occasions.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">© 2026 Sienna Makeup Studio — Redefined beauty, beautifully done.</div>
+    </footer>
+  </body>
+</html>
